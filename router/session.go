@@ -33,7 +33,7 @@ func (r *Router) Login(ctx *gin.Context) {
 		return
 	}
 
-	// TODO: Create token
+	// Create token
 
 	token, _, err := CreateToken(TokenInfo{UserID: uuid.MustParse(userId)}, []byte(config.Cfg.Secret))
 	if err != nil {

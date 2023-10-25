@@ -61,7 +61,7 @@ func CreateToken(info TokenInfo, secret []byte) (string, string, error) {
 // Validate verifies token signature and expiration date
 // returns nil if valid, err otherwise
 
-func Validate(tokenString string, secret []byte) (error, *TokenClaims) {
+func ValidateToken(tokenString string, secret []byte) (error, *TokenClaims) {
 
 	token, err := jwt.ParseWithClaims(
 		tokenString, &TokenClaims{},
