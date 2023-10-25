@@ -1,16 +1,23 @@
 package main
 
 import (
+	"bitroll/codefest1-users/config"
 	"bitroll/codefest1-users/controller"
 	"bitroll/codefest1-users/database"
 	"bitroll/codefest1-users/router"
+	"embed"
 	"fmt"
 	"log"
 )
 
+//go:embed sql/migrations/*.sql
+var MigrationsFS embed.FS
+
+const MigrationsPath = "sql/migrations"
+
 func main() {
 	log.Println("Starting...")
-	config := ReadEnvVars()
+	config := config.ReadEnvVars()
 
 	// setup database
 

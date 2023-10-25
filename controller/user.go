@@ -3,10 +3,19 @@ package controller
 import (
 	"bitroll/codefest1-users/model"
 	"context"
+	"golang.org/x/crypto/bcrypt"
 	"time"
 )
 
 func (ctrl *Controller) Register(req model.ReqRegister) error {
+
+	// pass hash
+	// TODO: Use secret
+
+	hashed, err := bcrypt.GenerateFromPassword([]byte(req.Password), 8)
+	if err != nil {
+		return err
+	}
 
 	// write
 
@@ -14,15 +23,17 @@ func (ctrl *Controller) Register(req model.ReqRegister) error {
 	defer cancel()
 
 	query := `
-		INSERT INTO users (username, password_hash)
-		VALUES ($1, $2)
+		INSERT INTO users (username, email, full_name, password_hash)
+		VALUES ($1, $2, $3, $4)
 	`
 
-	_, err := ctrl.DB.ExecContext(
+	_, err = ctrl.DB.ExecContext(
 		ctx,
 		query,
 		req.Username,
-		req.Password,
+		req.Email,
+		req.Fullname,
+		string(hashed),
 	)
 	if err != nil {
 		return err

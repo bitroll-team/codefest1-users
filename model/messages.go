@@ -12,7 +12,7 @@ func MsgIntServerErr() gin.H {
 
 func MsgValidationErr(err string) gin.H {
 	return gin.H{
-		"message": "Validation error",
-		"errors":  err,
+		"msg":    "Validation error",
+		"errors": err,
 	}
 }
