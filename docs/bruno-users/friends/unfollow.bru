@@ -1,0 +1,18 @@
+meta {
+  name: unfollow
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/{{API_PATH}}/user/follow
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIyMDIzLTEwLTI1VDE3OjA2OjUyLjg0MDc1MjMyMi0wNTowMCIsIm5iZiI6IjIwMjMtMTAtMjVUMTY6NTY6NTIuODQwNzUwMDk0LTA1OjAwIiwidXNlcmlkIjoiMGVhNWRiNTAtYWJlYS00YzNiLTg0NDQtZGMxZTg5MjFkMWU2In0.I2P5NfVd9EYQwjHk45BfyHO7iI5tL2lshL8p6wKVXCg",
+    "otheruserid" : "0818f7a7-e8df-44c3-a981-52dd6150f2ab"
+  }
+}
