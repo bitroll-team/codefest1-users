@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/bitroll-team/codefest1-users/compare/v0.4.0...v0.4.1) (2023-10-25)
+
+
+### Bug Fixes
+
+* sql ([adc62d0](https://github.com/bitroll-team/codefest1-users/commit/adc62d0d28a77ba78a58979b45af3a4f820c7c45))
+
+
+
 # [0.4.0](https://github.com/bitroll-team/codefest1-users/compare/v0.3.0...v0.4.0) (2023-10-25)
 
 
