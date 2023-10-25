@@ -42,6 +42,10 @@ func (r *Router) RegisterTeacher(ctx *gin.Context) {
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgBadRequest())
 		return
 	}
+	if err := r.validator.Struct(req); err != nil {
+		ctx.JSON(http.StatusBadRequest, model.MsgValidationErr(err.Error()))
+		return
+	}
 
 	// validate access token
 
@@ -52,13 +56,6 @@ func (r *Router) RegisterTeacher(ctx *gin.Context) {
 		return
 	}
 
-	// validate struct
-
-	if err := r.validator.Struct(req); err != nil {
-		ctx.JSON(http.StatusBadRequest, model.MsgValidationErr(err.Error()))
-		return
-	}
-
 	if err := r.ctrl.RegisterTeacher(req); err != nil {
 		log.Println(err)
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgIntServerErr())
@@ -66,4 +63,38 @@ func (r *Router) RegisterTeacher(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{"msg": "User registered"})
+}
+
+func (r *Router) SearchUser(ctx *gin.Context) {
+
+	// validate
+
+	var req model.ReqSearchUser
+	if err := ctx.BindJSON(&req); err != nil {
+		log.Println(err)
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgBadRequest())
+		return
+	}
+	if err := r.validator.Struct(req); err != nil {
+		ctx.JSON(http.StatusBadRequest, model.MsgValidationErr(err.Error()))
+		return
+	}
+
+	// validate access token
+
+	err, _ := ValidateToken(req.Token, []byte(config.Cfg.Secret))
+	if err != nil {
+		log.Println(err)
+		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Invalid access token"})
+		return
+	}
+
+	users, err := r.ctrl.SearchUser(req)
+	if err != nil {
+		log.Println(err)
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgIntServerErr())
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{"msg": "User registered", "users": users})
 }

@@ -1,0 +1,18 @@
+meta {
+  name: search_user
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/{{API_PATH}}/user/search
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "query": "ert",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIyMDIzLTEwLTI1VDE2OjIwOjU5Ljk5MDgzODUzNy0wNTowMCIsIm5iZiI6IjIwMjMtMTAtMjVUMTY6MTA6NTkuOTkwODM2MTQ0LTA1OjAwIiwidXNlcmlkIjoiMDcyOGQ0YjYtM2ExOS00ZWI4LWI3YTEtNTkwN2JiNzQ2NWNiIn0.XRDMsfkox7VVvNETq1sjaGT8XiOsvV6wYT4ATilzMpU"
+  }
+}
