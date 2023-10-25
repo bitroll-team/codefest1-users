@@ -42,7 +42,6 @@ func (r *Router) RegisterTeacher(ctx *gin.Context) {
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgBadRequest())
 		return
 	}
-	log.Println("wowo2")
 
 	// validate access token
 

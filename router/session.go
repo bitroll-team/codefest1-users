@@ -49,3 +49,28 @@ func (r *Router) Login(ctx *gin.Context) {
 		"token":    token,
 	})
 }
+
+func (r *Router) Challenge(ctx *gin.Context) {
+
+	// validate
+
+	var req model.ReqChallenge
+	if err := ctx.BindJSON(&req); err != nil {
+		log.Println(err)
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgBadRequest())
+		return
+	}
+
+	// validate access token
+
+	err, _ := ValidateToken(req.Token, []byte(config.Cfg.Secret))
+	if err != nil {
+		log.Println(err)
+		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Invalid access token"})
+		return
+	}
+
+	// send
+
+	ctx.JSON(http.StatusOK, gin.H{"msg": "Auth success"})
+}

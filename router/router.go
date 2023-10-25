@@ -40,7 +40,7 @@ func SetupRouter(ctrl *controller.Controller) Router {
 
 	sess := base.Group("/session")
 	sess.POST("/login", r.Login)
-	//user.POST("/refresh", r.Refresh)
+	sess.POST("/challenge", r.Challenge)
 
 	return r
 }

@@ -24,3 +24,6 @@ type ReqLogin struct {
 	Password string `json:"password" validate:"required"`
 }
 
+type ReqChallenge struct {
+	Token string `json:"token" validate:"required"`
+}
