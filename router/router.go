@@ -13,6 +13,8 @@ type Router struct {
 	validator *validator.Validate
 }
 
+// TODO: Move config
+
 func SetupRouter(ctrl *controller.Controller) Router {
 
 	var r Router

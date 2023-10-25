@@ -5,7 +5,14 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: {{BASE_URL}}/{{API_PATH}}/session/login
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "email": "woy@mail.com",
+    "password": "password"
+  }
 }

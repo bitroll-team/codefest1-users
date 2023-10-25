@@ -1,7 +1,6 @@
-package main
+package config
 
 import (
-	"embed"
 	"log"
 
 	"github.com/caarlos0/env/v9"
@@ -23,16 +22,14 @@ type Config struct {
 	DBConnStr    string   `env:"DB_CONN_STRING" envDefault:"postgres://user:pass@localhost:5432/db?sslmode=disable"`
 }
 
-//go:embed sql/migrations/*.sql
-var MigrationsFS embed.FS
-
-const MigrationsPath = "sql/migrations"
+var Cfg Config
 
 func ReadEnvVars() Config {
-	cfg := Config{}
-	if err := env.Parse(&cfg); err != nil {
+
+	Cfg = Config{}
+	if err := env.Parse(&Cfg); err != nil {
 		log.Fatal(err)
 	}
 
-	return cfg
+	return Cfg
 }
