@@ -8,12 +8,12 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func (ctrl *Controller) Login(req model.ReqLogin) (string, error) {
+func (ctrl *Controller) Login(req model.ReqLogin) (string, string, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	query := "SELECT id,password_hash FROM users WHERE email = $1"
+	query := "SELECT uuid,username,password_hash FROM users WHERE email = $1"
 
 	row := ctrl.DB.QueryRowContext(
 		ctx,
@@ -22,17 +22,18 @@ func (ctrl *Controller) Login(req model.ReqLogin) (string, error) {
 	)
 
 	var userId string
+	var username string
 	var password_hash string
 
-	if err := row.Scan(&userId, &password_hash); err != nil {
-		return "", err
+	if err := row.Scan(&userId, &username, &password_hash); err != nil {
+		return "", "", err
 	}
 
 	// compare
 
 	if err := bcrypt.CompareHashAndPassword([]byte(password_hash), []byte(req.Password)); err != nil {
-		return "", err
+		return "", "", err
 	}
 
-	return userId, nil
+	return userId, username, nil
 }

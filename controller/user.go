@@ -23,13 +23,14 @@ func (ctrl *Controller) Register(req model.ReqRegister) error {
 	defer cancel()
 
 	query := `
-		INSERT INTO users (username, email, full_name, password_hash)
-		VALUES ($1, $2, $3, $4)
+		INSERT INTO users (role, username, email, full_name, password_hash)
+		VALUES ($1, $2, $3, $4, $5)
 	`
 
 	_, err = ctrl.DB.ExecContext(
 		ctx,
 		query,
+		"STUDENT",
 		req.Username,
 		req.Email,
 		req.Fullname,
