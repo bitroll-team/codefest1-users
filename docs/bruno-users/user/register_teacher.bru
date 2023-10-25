@@ -1,0 +1,21 @@
+meta {
+  name: register_teacher
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/{{API_PATH}}/user/register_teacher
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username" : "woynertteacherr",
+    "email": "woryte@mail.com",
+    "fullname": "woy tea",
+    "password": "password",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIyMDIzLTEwLTI1VDE0OjM0OjM2Ljk1NzI1Mjg0OC0wNTowMCIsIm5iZiI6IjIwMjMtMTAtMjVUMTQ6MjQ6MzYuOTU3MjUwNDk1LTA1OjAwIiwidXNlcmlkIjoiMDgxOGY3YTctZThkZi00NGMzLWE5ODEtNTJkZDYxNTBmMmFiIn0.q1T75VbNsJmDDMHFZv65Q-leRDGRn0AbkuXSNFraQz8"
+  }
+}
