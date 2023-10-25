@@ -26,7 +26,7 @@ func (r *Router) Login(ctx *gin.Context) {
 		return
 	}
 
-	userId, username, err := r.ctrl.Login(req)
+	res, err := r.ctrl.Login(req)
 	if err != nil {
 		log.Println(err)
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.MsgIntServerErr())
@@ -35,7 +35,7 @@ func (r *Router) Login(ctx *gin.Context) {
 
 	// Create token
 
-	token, _, err := CreateToken(TokenInfo{UserID: uuid.MustParse(userId)}, []byte(config.Cfg.Secret))
+	token, _, err := CreateToken(TokenInfo{UserID: uuid.MustParse(res.UserId)}, []byte(config.Cfg.Secret))
 	if err != nil {
 		log.Println(err)
 		return
@@ -45,7 +45,8 @@ func (r *Router) Login(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{
 		"msg":      "User logged in",
-		"username": username,
+		"username": res.Username,
+		"rol":      res.Role,
 		"token":    token,
 	})
 }
