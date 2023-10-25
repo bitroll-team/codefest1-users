@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/bitroll-team/codefest1-users/compare/v0.6.0...v0.7.0) (2023-10-25)
+
+
+### Features
+
+* add role to login response ([ba2b9bb](https://github.com/bitroll-team/codefest1-users/commit/ba2b9bb2df4cda0664a56e10fe48552ec4f6da28))
+
+
+
 # [0.6.0](https://github.com/bitroll-team/codefest1-users/compare/v0.5.0...v0.6.0) (2023-10-25)
 
 
@@ -36,16 +45,6 @@
 ### Features
 
 * return username ([a2457ea](https://github.com/bitroll-team/codefest1-users/commit/a2457ea05099904ece67cf04987581dafdd0989d))
-
-
-
-# [0.3.0](https://github.com/bitroll-team/codefest1-users/compare/v0.2.0...v0.3.0) (2023-10-25)
-
-
-### Features
-
-* login ([6eea5bc](https://github.com/bitroll-team/codefest1-users/commit/6eea5bcb87502d9a0bbba36a8efceb948bff2635))
-* register ([a052388](https://github.com/bitroll-team/codefest1-users/commit/a05238811a55d17e4af1c27646b85c0767ff853d))
 
 
 
