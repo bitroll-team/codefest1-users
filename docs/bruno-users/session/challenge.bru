@@ -1,0 +1,17 @@
+meta {
+  name: challenge
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/{{API_PATH}}/session/challenge
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIyMDIzLTEwLTI1VDE0OjU2OjUyLjUxNjkyMDcwNS0wNTowMCIsIm5iZiI6IjIwMjMtMTAtMjVUMTQ6NDY6NTIuNTE2OTE3OTQzLTA1OjAwIiwidXNlcmlkIjoiMDcyOGQ0YjYtM2ExOS00ZWI4LWI3YTEtNTkwN2JiNzQ2NWNiIn0.dqkX3ZOVmityKRckpF583dLsvpUF5w-h_COfG_ZObuQ"
+  }
+}
