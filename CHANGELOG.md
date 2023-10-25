@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/bitroll-team/codefest1-users/compare/v0.7.0...v0.8.0) (2023-10-25)
+
+
+### Features
+
+* Search users ([4c4e84e](https://github.com/bitroll-team/codefest1-users/commit/4c4e84e8ec68f20df1a7f81bfa52db06ad832427))
+
+
+
 # [0.7.0](https://github.com/bitroll-team/codefest1-users/compare/v0.6.0...v0.7.0) (2023-10-25)
 
 
@@ -36,15 +45,6 @@
 ### Bug Fixes
 
 * sql ([adc62d0](https://github.com/bitroll-team/codefest1-users/commit/adc62d0d28a77ba78a58979b45af3a4f820c7c45))
-
-
-
-# [0.4.0](https://github.com/bitroll-team/codefest1-users/compare/v0.3.0...v0.4.0) (2023-10-25)
-
-
-### Features
-
-* return username ([a2457ea](https://github.com/bitroll-team/codefest1-users/commit/a2457ea05099904ece67cf04987581dafdd0989d))
 
 
 
