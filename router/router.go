@@ -38,6 +38,7 @@ func SetupRouter(ctrl *controller.Controller) Router {
 	user.POST("/register", r.Register)
 	user.POST("/register_teacher", r.RegisterTeacher)
 	user.POST("/search", r.SearchUser)
+	user.POST("/follow", r.FollowUser)
 
 	sess := base.Group("/session")
 	sess.POST("/login", r.Login)
