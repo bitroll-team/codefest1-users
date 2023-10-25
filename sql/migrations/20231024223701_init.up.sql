@@ -19,4 +19,17 @@ VALUES (
   'fulladmin',
   '$2a$08$abHt86mhBpv7frwLLb//4ufNcIjhLzRfxXb6XPG1Qa54iyH4Sxw7W',
   'ADMIN'
-)
+);
+
+CREATE TABLE IF NOT EXISTS followers (
+  "uuid" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  "followed_user_uuid" UUID,
+  "follower_user_uuid" UUID,
+  CONSTRAINT fk_followed_users
+    FOREIGN KEY ("followed_user_uuid")
+      REFERENCES users (uuid),
+  CONSTRAINT fk_follower_users
+    FOREIGN KEY ("follower_user_uuid")
+      REFERENCES users (uuid),
+  UNIQUE("followed_user_uuid", "follower_user_uuid")
+);

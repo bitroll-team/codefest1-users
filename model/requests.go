@@ -1,5 +1,7 @@
 package model
 
+import "github.com/google/uuid"
+
 // user
 
 type ReqRegister struct {
@@ -31,4 +33,11 @@ type ReqLogin struct {
 
 type ReqChallenge struct {
 	Token string `json:"token" validate:"required"`
+}
+
+// friends
+
+type ReqFollowUser struct {
+	Token       string    `json:"token" validate:"required"`
+	OtherUserId uuid.UUID `json:"otheruserid" validate:"required"`
 }
