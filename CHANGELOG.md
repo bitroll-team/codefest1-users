@@ -1,3 +1,12 @@
+# [0.10.0](https://github.com/bitroll-team/codefest1-users/compare/v0.9.0...v0.10.0) (2023-10-25)
+
+
+### Features
+
+* unfollow user ([84f9066](https://github.com/bitroll-team/codefest1-users/commit/84f9066c315cc685ff89aa30bf22b5abd8fff662))
+
+
+
 # [0.9.0](https://github.com/bitroll-team/codefest1-users/compare/v0.8.0...v0.9.0) (2023-10-25)
 
 
@@ -31,20 +40,6 @@
 ### Features
 
 * challenge ([0ac0cee](https://github.com/bitroll-team/codefest1-users/commit/0ac0cee558f22b69c81cf1563d4de949717e0a0f))
-
-
-
-# [0.5.0](https://github.com/bitroll-team/codefest1-users/compare/v0.4.1...v0.5.0) (2023-10-25)
-
-
-### Bug Fixes
-
-* cors ([d22aeb4](https://github.com/bitroll-team/codefest1-users/commit/d22aeb406b9835f61f2e5c033a45e3d8ff688125))
-
-
-### Features
-
-* register teacher ([66dbd36](https://github.com/bitroll-team/codefest1-users/commit/66dbd36a7feeecd40cf9b752a928f75767ba64a2))
 
 
 
