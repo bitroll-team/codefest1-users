@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/bitroll-team/codefest1-users/compare/v0.3.0...v0.4.0) (2023-10-25)
+
+
+### Features
+
+* return username ([a2457ea](https://github.com/bitroll-team/codefest1-users/commit/a2457ea05099904ece67cf04987581dafdd0989d))
+
+
+
 # [0.3.0](https://github.com/bitroll-team/codefest1-users/compare/v0.2.0...v0.3.0) (2023-10-25)
 
 
