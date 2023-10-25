@@ -3,6 +3,7 @@ package router
 import (
 	"bitroll/codefest1-users/controller"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
@@ -22,12 +23,20 @@ func SetupRouter(ctrl *controller.Controller) Router {
 	r.ctrl = ctrl
 	r.validator = validator.New()
 
+	// cors
+
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"*"}
+	config.AllowCredentials = true
+	r.Use(cors.New(config))
+
 	// routes
 
 	base := r.Group("/api/v1")
 
 	user := base.Group("/user")
 	user.POST("/register", r.Register)
+	user.POST("/register_teacher", r.RegisterTeacher)
 
 	sess := base.Group("/session")
 	sess.POST("/login", r.Login)
